@@ -1,0 +1,54 @@
+﻿@model TestMvc.Models.Persoana
+
+@{
+    ViewData["Title"] = "Modifică";
+}
+
+<h1>Modifică</h1>
+<div class="mt-5">
+<h4>Persoană</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PersoanaId" />
+                <div class="mt-3">
+            <div class="form-group">
+                <label asp-for="Nume" class="control-label"></label>
+                <input asp-for="Nume" class="form-control" />
+                <span asp-validation-for="Nume" class="text-danger"></span>
+            </div>
+            </div>
+                <div class="mt-3">
+            <div class="form-group">
+                <label asp-for="Prenume" class="control-label"></label>
+                <input asp-for="Prenume" class="form-control" />
+                <span asp-validation-for="Prenume" class="text-danger"></span>
+            </div>
+            </div>
+                <div class="mt-3">
+            <div class="form-group">
+                <label asp-for="Sex" class="control-label"></label>
+                        @using (Html.BeginForm("Index", "Persoane", FormMethod.Post))
+                        {
+                            <span style="color:#205eab;"><b>Masculin: </b></span> @Html.RadioButton("Sex","Masculin",false)
+                            <span style="color:#ec1c24;"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Feminin: </b></span> @Html.RadioButton("Sex", "Feminin",true)
+                        }
+            </div>
+            </div>
+                <div class="mt-3">
+                <input type="submit" value="Salvează" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+    <div class="mt-3">
+<div> 
+    <a asp-action="Index">Înapoi la listă</a>
+</div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</div>

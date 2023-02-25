@@ -1,0 +1,55 @@
+﻿@model IEnumerable<TestMvc.Models.Pontaj>
+
+@{
+    ViewData["Title"] = "Pontaje";
+}
+
+<h1>Listă pontaje</h1>
+
+<p>
+    <div class="mt-5">
+    <a asp-action="Create">Adaugă pontaj</a>
+    </div>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Durata)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sarcina)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Observatii)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Durata)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sarcina.Denumire)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Observatii)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PontajId">Modifică</a> |
+                <a asp-action="Details" asp-route-id="@item.PontajId">Detalii</a> |
+                <a asp-action="Delete" asp-route-id="@item.PontajId">Șterge</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

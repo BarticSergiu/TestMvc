@@ -1,0 +1,56 @@
+﻿@model TestMvc.Models.Sarcina
+
+@{
+    ViewData["Title"] = "Detalii";
+}
+
+<h1>Detalii</h1>
+
+<div>
+    <div class="mt-5">
+    <h4>Sarcină</h4>
+    </div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Denumire)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Denumire)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Descriere)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Descriere)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Prioritate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Prioritate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TipSarcina)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TipSarcina)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OreEstimate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OreEstimate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Persoana)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Persoana.Nume)
+        </dd>
+    </dl>
+</div>
+<div class="mt-3">
+    <a asp-action="Edit" asp-route-id="@Model?.SarcinaId">Modifică</a> |
+    <a asp-action="Index">Înapoi la listă</a>
+</div>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<TestMvc.Models.Persoana>
+
+@{
+    ViewData["Title"] = "Persoane";
+}
+
+<h1>Listă persoane</h1>
+<div class="mt-5">
+<p>
+    <a asp-action="Create">Adaugă persoană</a>
+</p>
+</div>
+<div class="mt-5">
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prenume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sex)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sex)
+            </td>
+            <td>
+                        <a asp-action="Edit" asp-route-id="@item.PersoanaId">Modifică</a> |
+                        <a asp-action="Details" asp-route-id="@item.PersoanaId">Detalii</a> |
+                        <a asp-action="Delete" asp-route-id="@item.PersoanaId">Șterge</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

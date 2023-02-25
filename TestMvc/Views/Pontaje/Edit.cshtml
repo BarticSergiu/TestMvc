@@ -1,0 +1,60 @@
+﻿@model TestMvc.Models.Pontaj
+
+@{
+    ViewData["Title"] = "Modifică";
+}
+
+<h1>Modifică</h1>
+<div class="mt-5">
+<h4>Pontaj</h4>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PontajId" />
+            <div class="mt-3">
+            <div class="form-group">
+                <label asp-for="Data" class="control-label"></label>
+                <input asp-for="Data" class="form-control" />
+                <span asp-validation-for="Data" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="mt-3">
+            <div class="form-group">
+                <label asp-for="Durata" class="control-label"></label>
+                <input asp-for="Durata" class="form-control" />
+                <span asp-validation-for="Durata" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="mt-3">
+            <div class="form-group">
+                <label asp-for="Sarcina" class="control-label"></label>
+                <select asp-for="Sarcina" class="form-control" asp-items="@ViewBag.SarcinaId"></select>
+                <span asp-validation-for="Sarcina" class="text-danger"></span>
+            </div>
+            </div>
+                <div class="mt-3">
+            <div class="form-group">
+                <label asp-for="Observatii" class="control-label"></label>
+                <textarea asp-for="Observatii" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Observatii" class="text-danger"></span>
+            </div>
+            </div>
+                    <div class="mt-3">
+                <input type="submit" value="Salvează" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <div class="mt-3">
+    <a asp-action="Index">Înapoi la listă</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<TestMvc.Models.Sarcina>
+
+@{
+    ViewData["Title"] = "Sarcini";
+}
+
+<h1>Listă sarcini</h1>
+
+<p>
+    <div class="mt-5">
+    <a asp-action="Create">Adaugă sarcină</a>
+    </div>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Denumire)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descriere)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prioritate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipSarcina)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OreEstimate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Persoana)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Denumire)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descriere)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prioritate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipSarcina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OreEstimate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Persoana.Nume)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.SarcinaId">Modifică</a> |
+                    <a asp-action="Details" asp-route-id="@item.SarcinaId">Detalii</a> |
+                    <a asp-action="Delete" asp-route-id="@item.SarcinaId">Șterge</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
